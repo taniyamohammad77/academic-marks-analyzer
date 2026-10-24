@@ -9,7 +9,7 @@ Run `npm run test:e2e` for automated Chromium checks. Run `npm run test:e2e:head
 - Carry-forward of saved subjects, adding a subject, and comparing repeated subjects across different maximums.
 - Omitted subjects, delete confirmation, updated totals, and persistence after reload.
 - Legacy LocalStorage migration and protection of malformed v2 data.
-- Keyboard focus, labeled fields, live validation messages, and layout overflow at desktop, tablet, and phone widths.
+- Keyboard focus, labeled fields, live validation messages, axe WCAG 2.1 A/AA scans, and layout overflow at desktop, tablet, and phone widths.
 
 ## Remaining manual checks
 

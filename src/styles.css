@@ -29,8 +29,8 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 .intro h1 { margin: 0 0 10px; color: #d5d9e0; font-size: 36px; line-height: 1.2; letter-spacing: -1.2px; }
 .intro h1 em { color: var(--accent); font-style: normal; }
 .intro-copy { margin: 0; color: #a3adba; font-size: 13px; line-height: 1.6; }
-.primary-button { height: 42px; padding: 0 17px; border: 0; border-radius: 8px; background: #65718a; color: #e7e9ed; font-size: 12px; font-weight: 700; white-space: nowrap; }
-.primary-button:hover { background: #727e97; }
+.primary-button { height: 42px; padding: 0 17px; border: 0; border-radius: 8px; background: #59657b; color: #e7e9ed; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.primary-button:hover { background: #505c72; }
 
 .summary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .summary-card, .panel { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 const savedKey = 'academic-ledger-exams-v2';
 const legacyKey = 'academic-ledger-v1';
@@ -199,4 +200,20 @@ test('supports keyboard focus, labeled inputs, and live validation announcements
   await expect(page.getByLabel('Exam / unit name')).toBeFocused();
   await page.getByRole('button', { name: 'Save assessment' }).click();
   await expect(page.getByRole('alert')).toContainText('Enter an exam or unit name');
+});
+
+test('has no WCAG A/AA accessibility violations on desktop and phone', async ({ page }) => {
+  await page.goto('/');
+  let results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+  expect(results.violations.map(({ id, impact, description, nodes }) => ({ id, impact, description, elements: nodes.map(node => node.target) }))).toEqual([]);
+
+  await page.getByRole('button', { name: '+ Add assessment' }).click();
+  results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+  expect(results.violations.map(({ id, impact, description, nodes }) => ({ id, impact, description, elements: nodes.map(node => node.target) }))).toEqual([]);
+
+  await page.getByRole('button', { name: 'Close' }).click();
+  await openAssessment(page, { rows: [['Math', '40']] });
+  await page.setViewportSize({ width: 390, height: 844 });
+  results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+  expect(results.violations.map(({ id, impact, description, nodes }) => ({ id, impact, description, elements: nodes.map(node => node.target) }))).toEqual([]);
 });
