@@ -6,6 +6,10 @@ A small browser-only marks tracker. Create an exam such as Unit 1, enter one sha
 
 Run npm install, then npm run dev. Create a production build with npm run build and serve it with npm run preview.
 
+## Browser checks
+
+Install the Playwright browser once with `npx playwright install chromium`. Run automated browser checks with `npm run test:e2e`; use `npm run test:e2e:headed` to watch Chromium exercise the app. Desktop, tablet, and phone screenshots are saved under `test-results/`.
+
 ## Calculations
 
 - Subject percentage: obtained marks divided by the assessment's shared maximum, times 100.

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const STORAGE_KEY = 'academic-ledger-exams-v2';
 const LEGACY_KEY = 'academic-ledger-v1';
@@ -78,6 +78,12 @@ export default function App() {
   const [subjects, setSubjects] = useState([{ id: makeId(), name: '', obtained: '', maximum: '' }]);
   const [error, setError] = useState('');
   const [toast, setToast] = useState('');
+
+  useEffect(() => {
+    if (!toast) return undefined;
+    const timeout = window.setTimeout(() => setToast(''), 3000);
+    return () => window.clearTimeout(timeout);
+  }, [toast]);
 
   const subjectHistory = useMemo(() => {
     const names = new Map();
