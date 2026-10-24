@@ -13,5 +13,7 @@ Run `npm run test:e2e` for automated Chromium checks. Run `npm run test:e2e:head
 
 ## Remaining manual checks
 
-- Check announcements with an actual screen reader.
-- Review the app in the target deployment browsers and on physical phones/tablets.
+These were not verified in the automated run. Resume with this checklist before deployment:
+
+- [ ] **Screen reader:** In Chrome or Edge, use Windows Narrator (or another available screen reader) to navigate the page, open the assessment form, move through its labeled fields, submit valid and invalid data, and confirm that validation errors and the save message are announced.
+- [ ] **Physical phone/tablet:** On the target Android and/or iOS devices, review the form, assessment history, comparison cards, and horizontal marks-table scrolling in portrait and landscape. Confirm touch controls and text remain readable.
